@@ -5,5 +5,5 @@
 // @include        http://www.surrealmoviez.info/
 // @updateURL      https://raw.githubusercontent.com/surrealcode/smz-userscripts/master/smz/test.user.js
 // @downloadURL    https://raw.githubusercontent.com/surrealcode/smz-userscripts/master/smz/test.user.js
-// @version        1
+// @version        2
 // ==/UserScript==
