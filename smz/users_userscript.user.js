@@ -2,8 +2,8 @@
 // @name           SMz addons
 // @namespace      surrealmoviez.info
 // @description    Add extra functionalities to SMz
-// @updateURL      
-// @downloadURL    
+// @updateURL      https://raw.githubusercontent.com/surrealcode/smz-userscripts/master/smz/users_userscript.user.js
+// @downloadURL    https://raw.githubusercontent.com/surrealcode/smz-userscripts/master/smz/users_userscript.user.js
 // @include        http://www.surrealmoviez.info/*
 // @exclude        http://www.surrealmoviez.info/game.php
 // @require        http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js

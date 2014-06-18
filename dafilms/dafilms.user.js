@@ -2,8 +2,8 @@
 // @name           dafilms.com link extractor
 // @namespace      dafilms.com
 // @description    Prints the video direct download link
-// @updateURL      
-// @downloadURL    
+// @updateURL      https://raw.githubusercontent.com/surrealcode/smz-userscripts/master/dafilms/dafilms.user.js
+// @downloadURL    https://raw.githubusercontent.com/surrealcode/smz-userscripts/master/dafilms/dafilms.user.js
 // @include        http://dafilms.com/film/*
 // @include        http://dafilms.com/download/*
 // @include        http://dafilms.com/film/*

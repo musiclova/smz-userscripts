@@ -2,8 +2,8 @@
 // @name           whatimg fast copy
 // @namespace      whatimg
 // @description    Creates 1-click formatted textareas
-// @updateURL      
-// @downloadURL    
+// @updateURL      https://raw.githubusercontent.com/surrealcode/smz-userscripts/master/whatimg/whatimg.user.js
+// @downloadURL    https://raw.githubusercontent.com/surrealcode/smz-userscripts/master/whatimg/whatimg.user.js
 // @include        https://whatimg.com/
 // @include        https://whatimg.com/upload.php
 // @require        https://gist.github.com/raw/2625891/waitForKeyElements.js

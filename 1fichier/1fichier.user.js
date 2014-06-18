@@ -2,8 +2,8 @@
 // @name           1fichier show me the links
 // @namespace      1fichier.com
 // @description    Returns a clean list of links
-// @updateURL      
-// @downloadURL    
+// @updateURL      https://raw.githubusercontent.com/surrealcode/smz-userscripts/master/1fichier/1fichier.user.js
+// @downloadURL    https://raw.githubusercontent.com/surrealcode/smz-userscripts/master/1fichier/1fichier.user.js
 // @include        http://www.1fichier.com/console/*
 // @include        http://www.1fichier.com/*/console/*
 // @include        http://1fichier.com/console/*
