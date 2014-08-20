@@ -7,7 +7,7 @@
 // @include        https://whatimg.com/
 // @include        https://whatimg.com/upload.php
 // @require        https://gist.github.com/raw/2625891/waitForKeyElements.js
-// @version        0.1
+// @version        0.1.1
 // ==/UserScript==
 
 // using waitForKeyElements.js so this works with the drag'n'drop upload script: http://userscripts.org/scripts/show/105520
