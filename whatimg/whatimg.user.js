@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name           whatimg fast copy
-// @namespace      whatimg
-// @description    Creates 1-click formatted textareas
+// @name           WhatIMG output formatter
+// @namespace      surrealmoviez.info
+// @description    Adds fully formatted output containers
 // @updateURL      https://raw.githubusercontent.com/surrealcode/smz-userscripts/master/whatimg/whatimg.user.js
 // @downloadURL    https://raw.githubusercontent.com/surrealcode/smz-userscripts/master/whatimg/whatimg.user.js
 // @include        https://whatimg.com/
@@ -52,8 +52,6 @@ function extractLinks() {
             returnBB.push(currLine);
         }
     }
-    console.log(returnLinks);
-    console.log(returnBB);
     return [returnLinks, returnBB];
 }
 

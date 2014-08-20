@@ -1,14 +1,14 @@
 // ==UserScript==
-// @name           imgur SMz formatter
-// @namespace      imgur.com
-// @description    Adds a ready-for-SMz code option to imgur
+// @name           imgur output formatter
+// @namespace      surrealmoviez.info
+// @description    Adds fully formatted output containers
 // @updateURL      https://raw.githubusercontent.com/surrealcode/smz-userscripts/master/imgur/imgur.user.js
 // @downloadURL    https://raw.githubusercontent.com/surrealcode/smz-userscripts/master/imgur/imgur.user.js
 // @include        http://imgur.com/*
 // @include        http://www.imgur.com/*
 // @include        https://imgur.com/*
 // @include        https://www.imgur.com/*
-// @version        0.1.2
+// @version        0.1.3
 // ==/UserScript==
 
 function extractUrls() {

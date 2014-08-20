@@ -1,13 +1,13 @@
 // ==UserScript==
 // @name           dafilms.com link extractor
-// @namespace      dafilms.com
+// @namespace      surrealmoviez.info
 // @description    Prints the video direct download link
 // @updateURL      https://raw.githubusercontent.com/surrealcode/smz-userscripts/master/dafilms/dafilms.user.js
 // @downloadURL    https://raw.githubusercontent.com/surrealcode/smz-userscripts/master/dafilms/dafilms.user.js
 // @include        http://dafilms.com/film/*
 // @include        http://dafilms.com/download/*
 // @include        http://dafilms.com/film/*
-// @version        0.2
+// @version        0.2.1
 // ==/UserScript==
 
 

@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name           1fichier show me the links
-// @namespace      1fichier.com
-// @description    Returns a clean list of links
+// @name           1fichier tools
+// @namespace      surrealmoviez.info
+// @description    Tools to manage 1fichier links easily
 // @updateURL      https://raw.githubusercontent.com/surrealcode/smz-userscripts/master/1fichier/1fichier.user.js
 // @downloadURL    https://raw.githubusercontent.com/surrealcode/smz-userscripts/master/1fichier/1fichier.user.js
 // @include        http://www.1fichier.com/console/*
@@ -13,7 +13,7 @@
 // @include        https://1fichier.com/console/*
 // @include        https://1fichier.com/*/console/*
 // @grant          none
-// @version        1.1.0
+// @version        1.1.1
 // ==/UserScript==
 
 
