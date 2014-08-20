@@ -2,8 +2,8 @@
 // @name           Gormogon Enhancer
 // @namespace      surrealmoviez.info
 // @description    Better display for Gormogon
-// @updateURL      
-// @downloadURL    
+// @updateURL      https://raw.githubusercontent.com/surrealcode/smz-userscripts/master/gormogon/gormogon.user.js
+// @downloadURL    https://raw.githubusercontent.com/surrealcode/smz-userscripts/master/gormogon/gormogon.user.js
 // @include        http://www.gormogon.com/index.php?page=torrent-details&*
 // @require        http://code.jquery.com/jquery-1.11.1.min.js
 // @grant          none
