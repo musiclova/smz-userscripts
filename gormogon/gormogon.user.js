@@ -7,11 +7,14 @@
 // @include        http://www.gormogon.com/*
 // @require        http://code.jquery.com/jquery-1.11.1.min.js
 // @grant          none
-// @version        0.1.2
+// @version        0.1.3
 // ==/UserScript==
 
 // Link the page logo to the index
 $('.tracker_logo').wrap('<a href="index.php"></a>');
+// Properly center the site logo (OCD, you know...)
+$('#logo > table').attr('width', 'auto');
+$('#logo .tracker_logo').css('width', '675px');
 
 // If present, modify the main menu
 if ($('#menu').length === 1) {
