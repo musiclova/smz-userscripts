@@ -7,7 +7,7 @@
 // @include        http://www.gormogon.com/*
 // @require        http://code.jquery.com/jquery-1.11.1.min.js
 // @grant          none
-// @version        0.1.1
+// @version        0.1.2
 // ==/UserScript==
 
 // Link the page logo to the index
@@ -104,7 +104,7 @@ if (window.self === window.top && document.documentURI.indexOf("page=torrents") 
         $('#logo').next('table').css('margin-top', '3px');
     }
     var searchDiv = '<form id="searchBar" action="index.php" style="margin-left: 8px; margin-right: 12px; text-align: center;">'
-            + '<input type="text" name="search" style="width: 85%; height: 20px; border: 1px solid rgb(51, 51, 51); background-color: rgb(25, 25, 25); color: white; border-radius: 3px; margin-right: 3px;" placeholder="Search torrents" name="search" maxlength="250" value="">'
+            + '<input type="text" name="search" style="width: 85%; height: 20px; border: 1px solid rgb(51, 51, 51); background-color: rgb(25, 25, 25); color: white; border-radius: 3px; margin-right: 3px; padding-left: 4px; padding-right: 4px;" placeholder="Search torrents" name="search" maxlength="250" value="">'
             + '<select size="1" name="options" style="width: auto; height: 20px; border: 1px solid rgb(51, 51, 51); background-color: rgb(25, 25, 25); color: grey; border-radius: 3px;">'
             + '<option selected="selected" value="0">File name</option>'
             + '<option value="2">Description</option>'
