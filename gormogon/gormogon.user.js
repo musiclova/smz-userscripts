@@ -57,6 +57,8 @@ if ($('#menu').length === 1) {
 var clock = $('.block-head-title:contains("Clock")').parents('.block');
 clock.prev('br').remove();
 clock.remove();
+// Remove lottery (always closed)
+$('.block-head-title:contains("Lottery")').parents('.block').remove();
 
 // Remove duplicated elements from iframes
 if (window.self !== window.top) {
