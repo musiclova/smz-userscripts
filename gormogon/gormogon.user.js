@@ -7,7 +7,7 @@
 // @include        http://www.gormogon.com/*
 // @require        http://code.jquery.com/jquery-1.11.1.min.js
 // @grant          none
-// @version        0.1.3
+// @version        0.2.3
 // ==/UserScript==
 
 // Link the page logo to the index
@@ -49,16 +49,37 @@ if ($('#menu').length === 1) {
             + '<li><a href="index.php?page=usercp&amp;do=pwd&amp;action=change&amp;uid=' + uid + '">Password</a></li>'
             + '<li><a href="index.php?page=usercp&amp;do=pid_c&amp;action=change&amp;uid=' + uid + '">Change PID</a></li>'
             + '</ul><!--[if lte IE 6]></td></tr></table></a><![endif]--></li>'
+            + '<li><a href="logout.php">Logout</a></li>'
             + '</ul><!--[if lte IE 6]></td></tr></table></a><![endif]--></li>';
     $('#menu > ul.level1').append(myPanelMenu);
+    // Remove redundant 'Logout'
+    $('#menu .level1-li > a:contains("Logout")').remove();
 }
 
-// Remove the clock
-var clock = $('.block-head-title:contains("Clock")').parents('.block');
-clock.prev('br').remove();
-clock.remove();
-// Remove lottery (always closed)
-$('.block-head-title:contains("Lottery")').parents('.block').remove();
+// Remove lateral blocks
+var blocksToRemove = ['.block-head-title:contains("Clock")', // every computer has a clock... and it's too glittery
+    '.block-head-title:contains("Lottery")', // Closed since ever
+    '.block-head-title:contains("User Info")', // Redundant
+    '.block-head-title:contains("Main Menu")']; // Redundant
+for (var i = 0; i < blocksToRemove.length; i++) {
+    var el = $(blocksToRemove[i]).parents('.block');
+    el.prev('br').remove();
+    el.remove();
+}
+
+// Place some bottom blocks in the empty space left by the removed ones
+var blocksToMove = ['.block-head-title:contains("Tracker Info")',
+    '.block-head-title:contains("Poll")'];
+var pivotBlock = $('.block-head-title:contains("Support US")').parents('.block');
+for (var i = 0; i < blocksToMove.length; i++) {
+    $(blocksToMove[i]).parents('.block').insertAfter(pivotBlock);
+}
+
+// Fix select elements with black font over black background
+$('select.drop_pager').css('color', '#855C45');
+
+// Align the current user stats to the right to read it easily
+$('#mcol .b-content > .lista tr:not(:last-child) td:first-child').attr('align', 'right');
 
 // Remove duplicated elements from iframes
 if (window.self !== window.top) {
@@ -68,8 +89,8 @@ if (window.self !== window.top) {
 // Display the IMDb ID in each article
 if (document.documentURI.indexOf("page=torrent-details") !== -1) {
     var imdbRow = '<tr><td align="right" class="header">IMDb ID</td><td id="imdbRow" valign="top" align="center" style="text-align:left;" class="lista">No IMDb found</td></tr>';
-    $(imdbRow).insertAfter('.b-content > div table tr:eq(2)');
-
+    $(imdbRow).insertBefore($('.header:contains("Upload Multiplier")').parent());
+    
     var iframeImdb = $('#online_ifrm');
     if (iframeImdb.length === 1) {
         // Search for an IMDb ID in the foreseen section
