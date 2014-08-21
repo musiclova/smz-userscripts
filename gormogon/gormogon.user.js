@@ -47,7 +47,7 @@ if ($('#menu').length === 1) {
             + '<li><a href="index.php?page=usercp&amp;do=pid_c&amp;action=change&amp;uid=' + uid + '">Change PID</a></li>'
             + '</ul><!--[if lte IE 6]></td></tr></table></a><![endif]--></li>'
             + '</ul><!--[if lte IE 6]></td></tr></table></a><![endif]--></li>';
-$('#menu > ul.level1').append(myPanelMenu);
+    $('#menu > ul.level1').append(myPanelMenu);
 }
 
 // Remove the clock
