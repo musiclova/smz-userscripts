@@ -7,7 +7,7 @@
 // @include        http://www.gormogon.com/*
 // @require        http://code.jquery.com/jquery-1.11.1.min.js
 // @grant          none
-// @version        0.2.4
+// @version        0.2.5
 // ==/UserScript==
 
 // Link the page logo to the index
@@ -95,7 +95,7 @@ if (document.documentURI.indexOf("page=torrent-details") !== -1) {
     if (iframeImdb.length === 1) {
         // Search for an IMDb ID in the foreseen section
         var imdbId = iframeImdb.attr('src');
-        imdbId = 'tt' + imdbId.substring(imdbId.indexOf('=') + 1);
+        imdbId = 'tt' + imdbId.substring(imdbId.indexOf('=') + 1).trim();
         $('#imdbRow').html('<a href="http://anonym.to/?http://www.imdb.com/title/' + imdbId + '/" target="_blank">' + imdbId + '</a>');
     } else {
         // Search for IMDb IDs in the description
