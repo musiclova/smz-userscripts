@@ -7,7 +7,7 @@
 // @include        http://www.gormogon.com/*
 // @require        http://code.jquery.com/jquery-1.11.1.min.js
 // @grant          none
-// @version        0.2.3
+// @version        0.2.4
 // ==/UserScript==
 
 // Link the page logo to the index
@@ -99,7 +99,7 @@ if (document.documentURI.indexOf("page=torrent-details") !== -1) {
         $('#imdbRow').html('<a href="http://anonym.to/?http://www.imdb.com/title/' + imdbId + '/" target="_blank">' + imdbId + '</a>');
     } else {
         // Search for IMDb IDs in the description
-        var description = $('.b-content > div table tr:eq(8) td:eq(1)').html();
+        var description = $('.header:contains("Description")').next('td').html();
         var pattern = /(tt\d+)/i;
         var found = description.match(pattern);
 
