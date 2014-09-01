@@ -2,8 +2,8 @@
 // @name           IMDb Enhancer
 // @namespace      surrealmoviez.info
 // @description    Better display for IMDb
-// @updateURL      
-// @downloadURL    
+// @updateURL      https://github.com/surrealcode/smz-userscripts/raw/master/imdb/imdb.user.js
+// @downloadURL    https://github.com/surrealcode/smz-userscripts/raw/master/imdb/imdb.user.js
 // @include        http://www.imdb.com/find?q=*
 // @grant          none
 // @version        0.0.1
