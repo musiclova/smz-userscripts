@@ -7,7 +7,7 @@
 // @include        http://www.iloveclassics.com/*
 // @require        http://code.jquery.com/jquery-1.11.1.min.js
 // @grant          none
-// @version        0.1.1
+// @version        0.1.2
 // ==/UserScript==
 
 // Add a global search bar
@@ -30,8 +30,10 @@ userbarTitle.hide();
 // Site logo links to the homepage
 $('.clear > div > img').wrap('<a href="index.php"></a>');
 
+var uri = document.documentURI;
+
 // Reorder the search display to get to the actual data faster
-if (document.documentURI.indexOf('/browse.php') !== -1) {
+if (uri.indexOf('/browse.php') !== -1) {
     // Put the colour keys at the bottom of the list
     var colourKeys = $('.NB_fmmain > center');
     colourKeys.siblings('br').remove();
@@ -44,7 +46,7 @@ if (document.documentURI.indexOf('/browse.php') !== -1) {
 }
 
 // Remove the search area if the user is browsing torrent pages
-if (document.documentURI.indexOf('/browse.php?page=') !== -1 && document.documentURI.indexOf('/browse.php?page=0') === -1) {
+if (uri.indexOf('/browse.php?') !== -1 && uri.indexOf('page=') !== -1 && uri.indexOf('page=0') === -1) {
     klappe_news('utorrentsearch');
     $('body').scrollTop($('#picutorrentsearch').closest('.ftable').offset().top);
 }
