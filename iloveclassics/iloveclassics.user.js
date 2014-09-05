@@ -2,8 +2,8 @@
 // @name           ILoveClassics Enhancer
 // @namespace      surrealmoviez.info
 // @description    Better display for ILoveClassics
-// @updateURL      
-// @downloadURL    
+// @updateURL      https://github.com/surrealcode/smz-userscripts/raw/master/iloveclassics/iloveclassics.user.js
+// @downloadURL    https://github.com/surrealcode/smz-userscripts/raw/master/iloveclassics/iloveclassics.user.js
 // @include        http://www.iloveclassics.com/*
 // @require        http://code.jquery.com/jquery-1.11.1.min.js
 // @grant          none
