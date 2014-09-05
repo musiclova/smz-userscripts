@@ -7,12 +7,13 @@
 // @include        http://www.iloveclassics.com/*
 // @require        http://code.jquery.com/jquery-1.11.1.min.js
 // @grant          none
-// @version        0.0.1
+// @version        0.1.0
 // ==/UserScript==
 
 // Add a global search bar
 var userbarTitle = $('.NB_ftcm:contains(User Bar)').parents('.fheader');
-var searchDiv = '<form action="browse.php" method="get" style="margin-top: 2px; margin-bottom: 4px; width: 100%;">'
+var searchDiv = '<table width="100%" cellspacing="0" cellpadding="0" border="0" style="text-align: center;"><tr><td>'
+        + '<form action="browse.php" method="get" style="margin-top: 2px; margin-bottom: 4px; width: 100%;">'
         + '<input type="text" name="search" style="width: 85%; border: 1px solid rgb(51, 51, 51); background-color: rgb(25, 25, 25); color: white; border-radius: 3px; margin-right: 3px; padding-left: 4px; padding-right: 4px;" placeholder="Search torrents" maxlength="250" value="">'
         + '<input type="hidden" value="0" name="cat">'
         + '<input type="hidden" value="1" name="incldead">'
@@ -21,7 +22,8 @@ var searchDiv = '<form action="browse.php" method="get" style="margin-top: 2px; 
         + '<option value="2">Description</option>'
         + '<option value="0">Both</option>'
         + '</select>'
-        + '</form>';
+        + '</form>'
+        + '</td></tr></table>';
 $(searchDiv).insertAfter(userbarTitle);
 userbarTitle.hide();
 
@@ -34,9 +36,15 @@ if (document.documentURI.indexOf('/browse.php') !== -1) {
     var colourKeys = $('.NB_fmmain > center');
     colourKeys.siblings('br').remove();
     $(colourKeys).insertAfter('#hover-over');
-    
+
     // Flip the search methods
     $('#kutorrentsearch > center').prependTo('#kutorrentsearch');
     $('#kutorrentsearch > form').appendTo('#kutorrentsearch');
     $('#kutorrentsearch > br').remove();
+}
+
+// Remove the search area if the user is browsing torrent pages
+if (document.documentURI.indexOf('/browse.php?page=') !== -1 && document.documentURI.indexOf('/browse.php?page=0') === -1) {
+    klappe_news('utorrentsearch');
+    $('body').scrollTop($('#picutorrentsearch').parents('.ftable').offset().top);
 }
