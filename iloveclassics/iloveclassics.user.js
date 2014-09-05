@@ -7,11 +7,11 @@
 // @include        http://www.iloveclassics.com/*
 // @require        http://code.jquery.com/jquery-1.11.1.min.js
 // @grant          none
-// @version        0.1.0
+// @version        0.1.1
 // ==/UserScript==
 
 // Add a global search bar
-var userbarTitle = $('.NB_ftcm:contains(User Bar)').parents('.fheader');
+var userbarTitle = $('.NB_ftcm:contains(User Bar)').closest('.fheader');
 var searchDiv = '<table width="100%" cellspacing="0" cellpadding="0" border="0" style="text-align: center;"><tr><td>'
         + '<form action="browse.php" method="get" style="margin-top: 2px; margin-bottom: 4px; width: 100%;">'
         + '<input type="text" name="search" style="width: 85%; border: 1px solid rgb(51, 51, 51); background-color: rgb(25, 25, 25); color: white; border-radius: 3px; margin-right: 3px; padding-left: 4px; padding-right: 4px;" placeholder="Search torrents" maxlength="250" value="">'
@@ -46,5 +46,5 @@ if (document.documentURI.indexOf('/browse.php') !== -1) {
 // Remove the search area if the user is browsing torrent pages
 if (document.documentURI.indexOf('/browse.php?page=') !== -1 && document.documentURI.indexOf('/browse.php?page=0') === -1) {
     klappe_news('utorrentsearch');
-    $('body').scrollTop($('#picutorrentsearch').parents('.ftable').offset().top);
+    $('body').scrollTop($('#picutorrentsearch').closest('.ftable').offset().top);
 }
