@@ -7,7 +7,7 @@
 // @include        http://www.gormogon.com/*
 // @require        http://code.jquery.com/jquery-1.11.1.min.js
 // @grant          none
-// @version        0.3.6
+// @version        0.3.7
 // ==/UserScript==
 
 // Link the page banner to the index
@@ -19,7 +19,7 @@ $('#logo .tracker_logo').css('width', '675px');
 // If present, modify the main menu
 if ($('#menu').length === 1) {
     // Remove the user bar toggler
-    $('#slideIt img[alt=click]').parents('span').hide();
+    $('#slideIt img[alt=click]').closest('span').hide();
     // Shrink unnecessary empty spaces
     $('#menu').css('height', '40px');
     // Add a link to 'All torrents' to 'Torrents Menu' and the 'Torrents' submenu
@@ -64,7 +64,7 @@ var blocksToRemove = ['.block-head-title:contains("Clock")', // every computer h
     '.block-head-title:contains("User Info")', // Redundant
     '.block-head-title:contains("Main Menu")']; // Redundant
 for (var i = 0; i < blocksToRemove.length; i++) {
-    var el = $(blocksToRemove[i]).parents('.block');
+    var el = $(blocksToRemove[i]).closest('.block');
     el.prev('br').remove();
     el.remove();
 }
@@ -72,9 +72,9 @@ for (var i = 0; i < blocksToRemove.length; i++) {
 // Place some bottom blocks in the empty space left by the removed ones
 var blocksToMove = ['.block-head-title:contains("Tracker Info")',
     '.block-head-title:contains("Poll")'];
-var pivotBlock = $('.block-head-title:contains("Support US")').parents('.block');
+var pivotBlock = $('.block-head-title:contains("Support US")').closest('.block');
 for (var i = 0; i < blocksToMove.length; i++) {
-    $(blocksToMove[i]).parents('.block').insertAfter(pivotBlock);
+    $(blocksToMove[i]).closest('.block').insertAfter(pivotBlock);
 }
 
 // Fix select elements with black font over black background
@@ -124,7 +124,7 @@ if (document.documentURI.indexOf("page=torrent-details") !== -1) {
 if (window.self === window.top && document.documentURI.indexOf("page=torrents") === -1) {
     var placeholder;
     if (document.documentURI.indexOf("/smf/") === -1) {
-        placeholder = $('#slideIt img[alt=click]').parents('span');
+        placeholder = $('#slideIt img[alt=click]').closest('span');
         $('#menu li').css('z-index', '100');
     } else {
         placeholder = $('#logo');
