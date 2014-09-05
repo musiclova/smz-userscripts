@@ -7,10 +7,10 @@
 // @include        http://www.gormogon.com/*
 // @require        http://code.jquery.com/jquery-1.11.1.min.js
 // @grant          none
-// @version        0.2.6
+// @version        0.3.6
 // ==/UserScript==
 
-// Link the page logo to the index
+// Link the page banner to the index
 $('.tracker_logo').wrap('<a href="index.php"></a>');
 // Properly center the site logo (OCD, you know...)
 $('#logo > table').attr('width', 'auto');
@@ -29,8 +29,8 @@ if ($('#menu').length === 1) {
     $('.level1-li .level1-a:contains("User Menu")').text('Community');
     // Place 'My Panel' as a top level menu
     var uid = $('ul.level2 a:contains("CP Home")').attr('href');
-    $('.fly:contains("My Panel")').parent().remove();
     uid = uid.substring(uid.indexOf('uid=') + 4);
+    $('.fly:contains("My Panel")').parent().remove();
     var myPanelMenu = '<li class="level1-li"><a href="index.php?page=usercp&amp;uid=' + uid + '" class="level1-a drop">My panel</a>'
             + '<!--[if gte IE 7]><!--><!--<![endif]--><!--[if lte IE 6]><table><tr><td><![endif]-->'
             + '<ul class="level2">'
@@ -52,6 +52,8 @@ if ($('#menu').length === 1) {
             + '<li><a href="logout.php">Logout</a></li>'
             + '</ul><!--[if lte IE 6]></td></tr></table></a><![endif]--></li>';
     $('#menu > ul.level1').append(myPanelMenu);
+    // Add 'Collections' as a 'Torrents' menu item
+    $('<li><a href="smf/index.php?board=12.0">Collections</a></li>').insertAfter('#menu .level2 li:contains("Requests")');
     // Remove redundant 'Logout'
     $('#menu .level1-li > a:contains("Logout")').remove();
 }
@@ -142,4 +144,11 @@ if (window.self === window.top && document.documentURI.indexOf("page=torrents") 
             + '<input type="hidden" name="active"  value="0">'
             + '</form>';
     $(searchDiv).insertAfter(placeholder);
+}
+
+// Remove the huge redundant yellow buttons
+if (document.documentURI === 'http://www.gormogon.com/' || document.documentURI.indexOf("/index.php") !== -1) {
+    var trButtons = $('#img5').closest('.lista').parent();
+    trButtons.hide();
+    trButtons.prev().hide();
 }
