@@ -7,13 +7,15 @@
 // @include        http://www.iloveclassics.com/*
 // @require        http://code.jquery.com/jquery-1.11.1.min.js
 // @grant          none
-// @version        0.1.3
+// @version        0.1.4
 // ==/UserScript==
+
+var uri = document.documentURI;
 
 // Add a global search bar
 var userbarTitle = $('.NB_ftcm:contains(User Bar)').closest('.fheader');
 var searchDiv = '<table width="100%" cellspacing="0" cellpadding="0" border="0" style="text-align: center;"><tr><td>'
-        + '<form action="http://www.iloveclassics.com/browse.php" method="get" style="margin-top: 2px; margin-bottom: 4px; width: 100%;">'
+        + '<form id="globalSearchBar" action="http://www.iloveclassics.com/browse.php" method="get" style="margin-top: 2px; margin-bottom: 4px; width: 100%;">'
         + '<input type="text" name="search" style="width: 85%; border: 1px solid rgb(51, 51, 51); background-color: rgb(25, 25, 25); color: white; border-radius: 3px; margin-right: 3px; padding-left: 4px; padding-right: 4px;" placeholder="Search torrents" maxlength="250" value="">'
         + '<input type="hidden" value="0" name="cat">'
         + '<input type="hidden" value="1" name="incldead">'
@@ -25,20 +27,23 @@ var searchDiv = '<table width="100%" cellspacing="0" cellpadding="0" border="0" 
         + '</form>'
         + '</td></tr></table>';
 $(searchDiv).insertAfter(userbarTitle);
+// Open search result in new tab if in the shoutbox page
+if (uri.indexOf('/sb.php') !== -1) {
+    $('#globalSearchBar').attr('target', '_blank');
+}
 userbarTitle.hide();
 
 // Site logo links to the homepage
 $('.clear > div > img').wrap('<a href="index.php"></a>');
 
-var uri = document.documentURI;
 
 // Reorder the search display to get to the actual data faster
 if (uri.indexOf('/browse.php') !== -1) {
-    // Put the colour keys at the bottom of the list
+// Put the colour keys at the bottom of the list
     var colourKeys = $('.NB_fmmain > center');
     colourKeys.siblings('br').remove();
     $(colourKeys).insertAfter('#hover-over');
-
+    
     // Flip the search methods
     $('#kutorrentsearch > center').prependTo('#kutorrentsearch');
     $('#kutorrentsearch > form').appendTo('#kutorrentsearch');
