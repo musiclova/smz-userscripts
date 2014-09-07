@@ -7,7 +7,7 @@
 // @include        http://www.iloveclassics.com/*
 // @require        http://code.jquery.com/jquery-1.11.1.min.js
 // @grant          GM_addStyle
-// @version        0.2.2
+// @version        0.2.3
 // ==/UserScript==
 
 var uri = document.documentURI;
@@ -37,6 +37,10 @@ userbarTitle.hide();
 // Add the suggestions feature to the global search bar
 $('#globalSearchInput').keyup(function(event) {
     var $suggestions = $("#suggestionsContainer");
+    if (event.which === 27){
+        $suggestions.fadeOut('slow');
+        return;
+    }
     if ($(this).val() !== "") {
         // Show the suggestions if there's text in the input
         $suggestions.fadeIn('slow');
