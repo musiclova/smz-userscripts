@@ -7,11 +7,12 @@
 // @include        http://www.iloveclassics.com/*
 // @require        http://code.jquery.com/jquery-1.11.1.min.js
 // @grant          GM_addStyle
-// @version        0.2.1
+// @version        0.2.2
 // ==/UserScript==
 
 var uri = document.documentURI;
 GM_addStyle(".suggestion-element:hover { background-color : #98a099; }");
+this.$ = this.jQuery = jQuery.noConflict(true);
 
 // Add a global search bar
 var userbarTitle = $('.NB_ftcm:contains(User Bar)').closest('.fheader');
@@ -97,6 +98,6 @@ if (uri.indexOf('/browse.php') !== -1) {
 
 // Hide the search area if the user is browsing trough torrent pages
 if (uri.indexOf('/browse.php?') !== -1 && uri.indexOf('page=') !== -1 && uri.indexOf('page=0') === -1) {
-    klappe_news('utorrentsearch');
     $('body').scrollTop($('#picutorrentsearch').closest('.ftable').offset().top);
+    $('#kutorrentsearch').hide();
 }
