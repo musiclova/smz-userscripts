@@ -7,7 +7,7 @@
 // @include        http://www.iloveclassics.com/*
 // @require        http://code.jquery.com/jquery-1.11.1.min.js
 // @grant          GM_addStyle
-// @version        0.2.0
+// @version        0.2.1
 // ==/UserScript==
 
 var uri = document.documentURI;
@@ -46,6 +46,10 @@ $('#globalSearchInput').keyup(function(event) {
             // Show the loading image while the request runs
             $suggestions.html('<img src="http://i.imgur.com/EUMuKRs.gif" title="Loading..." alt="Loading...">');
             $.get('/suggest.php?q=' + $(this).val(), function(data) {
+                if (data.trim().length === 0) {
+                    $suggestions.text('Nothing found :(');
+                    return;
+                }
                 var arraySuggestions = data.split('\n');
                 for (var i = 0; i < arraySuggestions.length; i++) {
                     // Clicking the suggestions automatically submits the form
