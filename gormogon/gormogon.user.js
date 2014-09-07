@@ -7,7 +7,7 @@
 // @include        http://www.gormogon.com/*
 // @require        http://code.jquery.com/jquery-1.11.1.min.js
 // @grant          none
-// @version        0.3.7
+// @version        0.3.8
 // ==/UserScript==
 
 // Link the page banner to the index
@@ -147,7 +147,7 @@ if (window.self === window.top && document.documentURI.indexOf("page=torrents") 
 }
 
 // Remove the huge redundant yellow buttons
-if (document.documentURI === 'http://www.gormogon.com/' || document.documentURI.indexOf("/index.php") !== -1) {
+if (document.documentURI === 'http://www.gormogon.com/' || document.documentURI ===  "http://www.gormogon.com/index.php") {
     var trButtons = $('#img5').closest('.lista').parent();
     trButtons.hide();
     trButtons.prev().hide();
