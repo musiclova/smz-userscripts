@@ -7,7 +7,7 @@
 // @include        http://www.gormogon.com/*
 // @require        http://code.jquery.com/jquery-1.11.1.min.js
 // @grant          none
-// @version        0.3.8
+// @version        0.3.9
 // ==/UserScript==
 
 // Link the page banner to the index
@@ -88,8 +88,12 @@ if (window.self !== window.top) {
     $('#logo').remove();
 }
 
-// Display the IMDb ID in each article
+// Modification to 'Torrent details' pages
 if (document.documentURI.indexOf("page=torrent-details") !== -1) {
+    // Add the film title to the page title (to be remembered in Firefox' autocompletition)
+    document.title = 'Gormogon .::. ' + $('.header:contains("Name")').eq(0).next('td').text();
+    
+    // Display the IMDb ID in each article
     var imdbRow = '<tr><td align="right" class="header">IMDb ID</td><td id="imdbRow" valign="top" align="center" style="text-align:left;" class="lista">No IMDb found</td></tr>';
     $(imdbRow).insertBefore($('.header:contains("Upload Multiplier")').parent());
     
