@@ -10,7 +10,7 @@
 // @grant          GM_getValue
 // @grant          GM_setValue
 // @grant          GM_xmlhttpRequest
-// @version        1.2.2
+// @version        1.2.3
 // ==/UserScript==
 
 function wrapTextjQ(element_name, openTag, closeTag) {
@@ -156,7 +156,7 @@ function formatFields(nameLinks, nameCaps, nameSpecs, nameCommms, namePass) {
         catch (err) {
             usercolor = "green";
         }
-        txt_altver_by = "<hr>\n\n\n<center><span style='color:orange'><b>[Alternative rip provided by " + txt_usercolor_start + usercolor + txt_usercolor_mid + username + txt_usercolor_end + "]</b></span></center>\n\n\n";
+        txt_altver_by = "<hr>\n\n\n<center><span style='color:orange'><b>[Alternate rip provided by " + txt_usercolor_start + usercolor + txt_usercolor_mid + username + txt_usercolor_end + "]</b></span></center>\n\n\n";
     }
     $('[name="comment_message"]').val($('[name="comment_message"]').val() + '*****************\n\n' + txt_altver_by + txt_downlinks + txt_mirror_by + cont_downlinks + txt_pass_start + txt_pass_end + txt_caps_start + cont_caps + txt_caps_end + txt_specs_start + cont_specs + txt_specs_end + txt_comm + cont_comm + '\n\n*****************\n\n\n');
 }
@@ -346,10 +346,10 @@ function createMessagesTable(section, arrayMessages) {
 
     var page_table = page_beginning + tables + page_end;
 
-    addJS_Node(null, null, fireNewTab(page_table));
+//    addJS_Node(null, null, fireNewTab(page_table));
 
 //    var j = window.open('', '_blank');
-//    j.document.write('<html><head></head><body> <ul><li>a</li><li>b</li><li>c</li></ul> </body></html>');
+    $('.main-bg > div').html(page_table);
 //    j.document.close();
 }
 
@@ -1083,8 +1083,8 @@ if (document.documentURI.indexOf("surrealmoviez.info/readarticle.php?article_id=
 
     // Define the text for the help popups
     var help_type = "<b>Re-up:</b> Replacement file for a previously posted version (<i>exactly</i> the same file). <b>Use this option if all previous links are dead!</b><br><br>Please include screencaps and/or specs if they're missing.<br><br>"
-            + "<b>Mirror:</b> Alternative links for an existing film. If the Article has different versions, specify which one are you mirroring.  Include screencaps and/or specs if they're missing.<br><br>"
-            + "<b>Alternative rip:</b> New version of an existing film. Upgrades, extended editions, different formats are examples of alternative rips. Don't forget to include screencaps and specs (min.3).<br><br>"
+            + "<b>Mirror:</b> Alternate links for an existing film. If the Article has different versions, specify which one are you mirroring.  Include screencaps and/or specs if they're missing.<br><br>"
+            + "<b>Alternate rip:</b> New version of an existing film. Upgrades, extended editions, different formats are examples of alternate rips. Don't forget to include screencaps and specs (min.3).<br><br>"
             + "<b>New Caps/Specs:</b> Use this form to post missing screencaps and/or specs for an existing film.<br><br>"
             + "For more information and how-to guides, visit the Tutorials!";
     var help_images = "Insert one image per line, as direct url (<i>http://www.yourhost.com/youriage1.jpg</i>) or &lt;img&gt;-tagged, whatever suits you best.<br><br>"
@@ -1102,7 +1102,7 @@ if (document.documentURI.indexOf("surrealmoviez.info/readarticle.php?article_id=
             + "<center><form method='post'>"
             + "<input type='radio' value='1' id='opt_reup' name='opts_script'><label for='opt_reup'> Re-Up </label>"
             + "<input type='radio' value='2' id='opt_mirror' name='opts_script'><label for='opt_mirror'> Mirror </label>"
-            + "<input type='radio' value='3' id='opt_altrip' name='opts_script'><label for='opt_altrip'> Alternative Rip </label>"
+            + "<input type='radio' value='3' id='opt_altrip' name='opts_script'><label for='opt_altrip'> Alternate Rip </label>"
             + "<input type='radio' value='4' id='opt_capsspecs' name='opts_script'><label for='opt_capsspecs'> New Caps/Specs</label>"
             + "</form><br>___________________________</center>"
             + "</div>"
